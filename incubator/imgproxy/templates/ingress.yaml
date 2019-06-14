@@ -26,8 +26,10 @@ spec:
   - host: {{ .Values.ingress.host }}
     http:
       paths:
-      - path: /
+      {{- range $path := .Values.ingress.paths }}
+      - path: {{ $path }}
         backend:
-          serviceName: {{ template "imgproxy.fullname" . }}
+          serviceName: {{ template "imgproxy.fullname" $ }}
           servicePort: 80
+      {{- end -}}
 {{- end -}}

@@ -54,6 +54,8 @@ ingress:
   acme: false
   host: "example.com"
   annotations: {}
+  paths:
+    - "/"
   #   nginx.ingress.kubernetes.io/proxy-body-size: "32m"
 
 # TLS key & certificate if tls is enable & acme is disabled for Ingress resource.
